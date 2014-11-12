@@ -11,7 +11,7 @@
 #' news on your favorite hockey webpage.
 #' Suffer no more! You can now ask R directly, without tempting yourself
 #' by firing up your web browser.
-#' 
+#'
 #' @param team.name Defaults to "canucks", \code{date} desults to system date
 #' @return Logical \code{TRUE} if \code{team.name} has an NHL game on \code{date},
 #' \code{FALSE} otherwise
@@ -22,17 +22,16 @@
 #' gday()
 #' gday("canadiens", 2014-10-10)
 #' gday("Bruins")
-#' 
+#'
 
 
 # library(RCurl) # list in dependency
 
 # find the team name in the URL (ignore cases)
 gday <- function(team.name = "canucks", date = Sys.Date()) {
-# 	expect_that(,
-# 							shows_message("date should be in yyyy-mm-dd format"))
+	# 	expect_that(,
+	# 							shows_message("date should be in yyyy-mm-dd format"))
 	url <- paste0("http://live.nhle.com/GameData/GCScoreboard/", date, ".jsonp")
 	grepl(team.name, getURL(url), ignore.case=TRUE)
 }
-
 
