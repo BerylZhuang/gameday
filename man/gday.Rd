@@ -3,17 +3,17 @@
 \alias{gday}
 \title{Is it Gameday?}
 \usage{
-gday(team.name = "canucks", date = Sys.Date())
+gday(team.name)
 }
 \arguments{
-\item{team.name}{Defaults to "canucks", \code{date} desults to system date}
+\item{team.name}{The name of your team}
 }
 \value{
-Logical \code{TRUE} if \code{team.name} has an NHL game on \code{date},
+Logical \code{TRUE} if \code{team.name} has a NHL game today,
 \code{FALSE} otherwise
 }
 \description{
-This function returns TRUE if you NHL team plays today
+This function returns TRUE if your NHL team plays today
 and FALSE otherwise
 }
 \details{
@@ -28,9 +28,7 @@ by firing up your web browser.
 case in \code{team.name} is ignored
 }
 \examples{
-gday()
-gday("canadiens", 2014-10-10)
+gday("canucks")
 gday("Bruins")
 }
-\keyword{misc}
 

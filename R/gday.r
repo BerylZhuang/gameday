@@ -1,9 +1,7 @@
-# write the help file
 #' Is it Gameday?
 #'
-#'This function returns TRUE if you NHL team plays today
-#'and FALSE otherwise
-#'
+#' This function returns TRUE if your NHL team plays today
+#' and FALSE otherwise
 #'
 #' You know then problem: You're in your office writing R code and
 #' suddenly have the urge to check whether your NHL team has a game today.
@@ -12,26 +10,16 @@
 #' Suffer no more! You can now ask R directly, without tempting yourself
 #' by firing up your web browser.
 #'
-#' @param team.name Defaults to "canucks", \code{date} desults to system date
-#' @return Logical \code{TRUE} if \code{team.name} has an NHL game on \code{date},
+#' @param team.name The name of your team
+#' @return Logical \code{TRUE} if \code{team.name} has a NHL game today,
 #' \code{FALSE} otherwise
-#' @keywords misc
 #' @note case in \code{team.name} is ignored
 #' @export
 #' @examples
-#' gday()
-#' gday("canadiens", 2014-10-10)
+#' gday("canucks")
 #' gday("Bruins")
-#'
-
-
-# library(RCurl) # list in dependency
-
-# find the team name in the URL (ignore cases)
-gday <- function(team.name = "canucks", date = Sys.Date()) {
-	# 	expect_that(,
-	# 							shows_message("date should be in yyyy-mm-dd format"))
-	url <- paste0("http://live.nhle.com/GameData/GCScoreboard/", date, ".jsonp")
-	grepl(team.name, getURL(url), ignore.case=TRUE)
+gday <- function(team.name){
+  url  <- paste0('http://live.nhle.com/GameData/GCScoreboard/',
+                 Sys.Date(), '.jsonp')
+  grepl(team.name, RCurl::getURL(url), ignore.case=TRUE)
 }
-
