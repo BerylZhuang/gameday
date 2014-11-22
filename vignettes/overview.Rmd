@@ -60,3 +60,12 @@ Also a quote using `>`:
 
 > "He who gives up [code] safety for [code] speed deserves neither."
 ([via](https://twitter.com/hadleywickham/status/504368538874703872))
+
+
+
+
+## Relection
+
+## funcitons included
+
+## helper functions
