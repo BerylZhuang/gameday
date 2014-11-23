@@ -6,4 +6,4 @@ To install the gameday packages:
 devtools::install_github("berylzhuang/gameday")
 ```
 
-Go to [vignette]() for package information and examples.
+Go to [vignette](https://github.com/BerylZhuang/gameday/blob/master/vignettes/overview.Rmd) for package information and examples.
