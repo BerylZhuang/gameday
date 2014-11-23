@@ -13,8 +13,8 @@ default vaule is system date}
 A data.frame of listing home and away teams and their scores
 }
 \description{
-Takes date and returns a data.frame with
-information about the games on the given date.
+Takes a date input and returns a data.frame with
+information about the scores of all games on the given date.
 }
 \details{
 Now you can check the scores of the NHL teams played/playing

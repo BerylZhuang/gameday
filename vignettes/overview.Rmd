@@ -18,7 +18,7 @@ Gameday package would allow users to query live.nhle.com to check if your NHLtea
 The package can be installed directly from github
 
 
-`install_github("berylzhuang/gameday")`
+`devtools::install_github("berylzhuang/gameday")`
 
 
 ## Functions included
@@ -73,16 +73,19 @@ see `?scores` for detail information on parameters and defaul values.
 The package contains three helper functions:
 
 `internet_connection()` : check if internet connection is available, returns TRUE or FALSE
+
 `check_date`: check if the date format is YYYY-MM-DD, returns TRUE or FALSE
+
 `check_team_name`: check if the input string is a team name or city name of the NHL teams, returns TRUE or FALSE
 
 
 ## Credits
-Thank you Jenny, Bernard and other people who made the tutorial and instructions.
+I would like to thank Jenny, Bernard and other people who made the tutorial and instructions.
+
 The functions `internet_connection`, `scores()`, and dataset used in the `check_team_name()` are taken from the [homework10](http://stat545-ubc.github.io/hw10_package.html) with modifications.
 
 ## Relection
-Making this package has been a fun project for me and with a few chanlenges. The key is to `test()`, build and reload, and `document()` frequently and commit working versions before any major changes. This really helps debugging.
+Making this package has been a fun project for me (with a few chanlenges too). The key is to `test()`, build and reload, and `document()` frequently and commit working versions before any major changes. This really helps debugging.
 
 * Helper functions and validity check.
 The helper functions are mainly writen for validity checks for the two exported functions.
@@ -123,3 +126,5 @@ stop("show error message here")`
 ```
 
 			- load the dataset in the functions by `data(arena.team)`
+			
+* `document()`, `test()`, `check()`, and final debugging.
