@@ -1,17 +1,13 @@
 ---
-title: "Overview of Gameday"
-author: "Beryl Zhuang"
+title: "Vignette Title"
+author: "Vignette Author"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Overview of Gameday}
+  %\VignetteIndexEntry{Vignette Title}
   %\VignetteEngine{knitr::rmarkdown}
-  %\usepackage[utf8]{inputenc}
+  \usepackage[utf8]{inputenc}
 ---
-
-I did this! :)
-
-Made some change
 
 Vignettes are long form documentation commonly included in packages. Because they are part of the distribution of the package, they need to be as compact as possible. The `html_vignette` output type provides a custom style sheet (and tweaks some options) to ensure that the resulting html is as small as possible. The `html_vignette` format:
 
@@ -60,31 +56,3 @@ Also a quote using `>`:
 
 > "He who gives up [code] safety for [code] speed deserves neither."
 ([via](https://twitter.com/hadleywickham/status/504368538874703872))
-
-
-
-
-## Relection
-
-## funcitons included
-
-## helper functions
-
-
-http://r-pkgs.had.co.nz/tests.html
-
-steps
-for test_me.R
-
-expect_false()
-expect_true()
-expect_equal()
-expect_error()
-
-
-if(TRUE)
-stop("show error message here")
-
-# save data
-devtools::use_data()
-use_data(..., internal = TRUE)

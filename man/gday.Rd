@@ -6,7 +6,7 @@
 gday(team = "canucks", date = Sys.Date())
 }
 \arguments{
-\item{team}{The name of your team}
+\item{team}{The name of your team, or the city name}
 
 \item{date}{The date you want to check (in YYYY-MM-DD format),
 default vaule is system date}
@@ -33,5 +33,6 @@ case in \code{team} is ignored
 \examples{
 gday("canucks")
 gday("Blues", "2014-11-22")
+gday("vancouver", "2014-11-23")
 }
 

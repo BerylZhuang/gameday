@@ -19,23 +19,19 @@ check_date <- function(date){
 
 
 #--------------
-# check if the team name input is valid
+# check if the team name input is valid (city or team name)
+
 
 check_team_name <- function(team){
-	# returns TRUE is a exact match of team is found(case ignored)
+	# returns TRUE is a exact match of word is found(case ignored)
+	# input can be a team name or city name
 	# otherwise reture false
 
-	# list of team names(last update nov 2014)
-	teams <- c('Ducks', 'Blackhawks', 'Wild', 'Senators',
-						 'Coyotes', 'Avalanche', 'Canadiens', 'Sharks',
-						 'Bruins', 'Blue Jackets', 'Predators', 'Blues',
-						 'Sabres', 'Stars', 'Devils', 'Lightning',
-						 'Flames', 'Red Wings', 'Islanders', 'Maple Leafs',
-						 'Hurricanes', 'Oilers', 'Rangers', 'Canucks',
-						 'Kings', 'Panthers', 'Flyers', 'Capitals',
-						 'Penguins', 'Jets')
+	# list of team names and their cities
+	data(arena.team)
+	teams <- levels(arena.team$team)
 
 	TRUE %in%
-		grepl(pattern = paste0("^", team, "$"),
+		grepl(pattern = paste0("\\b", team, "\\b"),
 					teams, ignore.case = TRUE)
 }

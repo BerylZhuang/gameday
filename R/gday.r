@@ -10,7 +10,7 @@
 #' Suffer no more! You can now ask R directly, without tempting yourself
 #' by firing up your web browser.
 #'
-#' @param team The name of your team
+#' @param team The name of your team, or the city name
 #' @param date The date you want to check (in YYYY-MM-DD format),
 #' default vaule is system date
 #' @return Logical \code{TRUE} if \code{team} has a NHL game today,
@@ -20,17 +20,20 @@
 #' @examples
 #' gday("canucks")
 #' gday("Blues", "2014-11-22")
+#' gday("vancouver", "2014-11-23")
 #'
 
 
 gday <- function(team = "canucks", date = Sys.Date()){
+	data(arena.team)
 	# test if with internet connection
 	if(internet_connection() == FALSE)
 		stop("Error: No internect connection")
 	# test if the input of team name is correct
 	if(check_team_name(team) == FALSE)
 		stop("Error: Input of the team name is not found.
-				 please provide a valid team name. e.g. blues, case ignored.")
+				 please provide a valid team name or city name.
+				 e.g. blues, vancouver case ignored.")
 	# test if the input of date is yyyy-mm-dd format
 	if(check_date(date) == FALSE)
 		 stop("Error: Input of date format should be YYYY-MM-DD

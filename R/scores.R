@@ -33,7 +33,7 @@ scores <- function(date = Sys.Date()){
 	# minor modification
 	url  <- paste0("http://live.nhle.com/GameData/GCScoreboard/",
 								 date, ".jsonp")
-	raw <- getURL(url)
+	raw <- RCurl::getURL(url)
 	json <- gsub("([a-zA-Z_0-9\\.]*\\()|(\\);?$)", "", raw, perl = TRUE)
 	data <- jsonlite::fromJSON(json)$games
 	scores <-
