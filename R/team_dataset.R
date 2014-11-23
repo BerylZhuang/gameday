@@ -1,5 +1,3 @@
-#'
-#'
 #' A dataset containing arean, NHL team names and lat and long of
 #' arean location
 #'

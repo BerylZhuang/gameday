@@ -1,7 +1,7 @@
 #' What is the score?
 #'
-#' Takes date and returns a data.frame with
-#' information about the games on the given date.
+#' Takes a date input and returns a data.frame with
+#' information about the scores of all games on the given date.
 #'
 #' Now you can check the scores of the NHL teams played/playing
 #' on a given date, without the temptation to browse the web or

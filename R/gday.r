@@ -1,6 +1,6 @@
-#' Is it Gameday? new2
+#' Is it Gameday?
 #'
-#' This function returns TRUE if your NHL team plays today
+#' This function returns TRUE if your NHL team plays on a given day
 #' and FALSE otherwise
 #'
 #' You know then problem: You're in your office writing R code and
@@ -13,7 +13,7 @@
 #' @param team The name of your team, or the city name
 #' @param date The date you want to check (in YYYY-MM-DD format),
 #' default vaule is system date
-#' @return Logical \code{TRUE} if \code{team} has a NHL game today,
+#' @return Logical \code{TRUE} if \code{team} has a NHL game on the given day,
 #' \code{FALSE} otherwise
 #' @note case in \code{team} is ignored
 #' @export

@@ -9,82 +9,117 @@ vignette: >
   %\usepackage[utf8]{inputenc}
 ---
 
-I did this! :)
+Gameday package would allow users to query live.nhle.com to check if your NHLteam
+    is listed on the team play on a given day. Also can query live.nhle.com to get the
+    scores for a given day.
+    
+## How to install
 
-Made some change
+The package can be installed directly from github
 
-Vignettes are long form documentation commonly included in packages. Because they are part of the distribution of the package, they need to be as compact as possible. The `html_vignette` output type provides a custom style sheet (and tweaks some options) to ensure that the resulting html is as small as possible. The `html_vignette` format:
 
-- Never uses retina figures
-- Has a smaller default figure size
-- Uses a custom CSS stylesheet instead of the default Twitter Bootstrap style
+`install_github("berylzhuang/gameday")`
 
-## Vignette Info
 
-Note the various macros within the `vignette` setion of the metadata block above. These are required in order to instruct R how to build the vignette. Note that you should change the `title` field and the `\VignetteIndexEntry` to match the title of your vignette.
+## Functions included
 
-## Styles
+`gday()` This function returns TRUE if your NHL team plays on a given day and FALSE otherwise.
 
-The `html_vignette` template includes a basic CSS theme. To override this theme you can specify your own CSS in the document metadata as follows:
+`scores()` This function takes a date input and returns a data.frame with information about the scores of all games on the given date.
 
-    output: 
-      rmarkdown::html_vignette:
-        css: mystyles.css
 
-## Figures
+## Examples
 
-The figure sizes have been customised so that you can easily put two images side-by-side. 
+`gday()` contains validity checks
 
-```{r, fig.show='hold'}
-plot(1:10)
-plot(10:1)
+* internet connection
+
+* check valid team names/city
+
+* check valid date format (YYYY-MM-DD)
+
+```{r}
+library(gameday)
+#use default values
+gday()
+
+# use both arguments
+gday("canucks", "2014-11-21")
+
 ```
 
-You can enable figure captions by `fig_caption: yes` in YAML:
+see `?gday` for detail information on parameters and defaul values.
 
-    output:
-      rmarkdown::html_vignette:
-        fig_caption: yes
+`scores()` contains validity checks
 
-Then you can use the chunk option `fig.cap = "Your figure caption."` in **knitr**.
+* internet connection
 
-## More Examples
+* check valid date format (YYYY-MM-DD)
 
-You can write math expressions, e.g. $Y = X\beta + \epsilon$, footnotes^[A footnote here.], and tables, e.g. using `knitr::kable()`.
+```{r}
 
-```{r, echo=FALSE, results='asis'}
-knitr::kable(head(mtcars, 10))
+#use default value
+scores()
+
+# input date
+scores("2014-11-21")
+
 ```
 
-Also a quote using `>`:
+see `?scores` for detail information on parameters and defaul values.
 
-> "He who gives up [code] safety for [code] speed deserves neither."
-([via](https://twitter.com/hadleywickham/status/504368538874703872))
-
-
-
-
-## Relection
-
-## funcitons included
 
 ## helper functions
+The package contains three helper functions:
+
+`internet_connection()` : check if internet connection is available, returns TRUE or FALSE
+`check_date`: check if the date format is YYYY-MM-DD, returns TRUE or FALSE
+`check_team_name`: check if the input string is a team name or city name of the NHL teams, returns TRUE or FALSE
 
 
-http://r-pkgs.had.co.nz/tests.html
+## Credits
+Thank you Jenny, Bernard and other people who made the tutorial and instructions.
+The functions `internet_connection`, `scores()`, and dataset used in the `check_team_name()` are taken from the [homework10](http://stat545-ubc.github.io/hw10_package.html) with modifications.
 
-steps
-for test_me.R
+## Relection
+Making this package has been a fun project for me and with a few chanlenges. The key is to `test()`, build and reload, and `document()` frequently and commit working versions before any major changes. This really helps debugging.
 
-expect_false()
-expect_true()
-expect_equal()
-expect_error()
+* Helper functions and validity check.
+The helper functions are mainly writen for validity checks for the two exported functions.
+This takes about 50% of the time (write test, debug, add more tests, debug...)
 
+	* key functions of `testthat`:
+			- expect_false()
+			- expect_true()
+			- expect_equal()
+			- expect_error()
+A good reference on [Testing](http://r-pkgs.had.co.nz/tests.html)
 
-if(TRUE)
-stop("show error message here")
+* Add validity checks to the main functions:
 
-# save data
-devtools::use_data()
-use_data(..., internal = TRUE)
+`if(TRUE)
+stop("show error message here")`
+
+* Save datasets and load them
+
+	- `devtools::use_data()` save a *.rda file in a new folder `\data`
+	- `use_data(..., internal = TRUE)` save a `sysdata.rda` at the root folder
+	- document the dataset
+			- creat a Rscript then `document()`
+```{r}
+#' A dataset containing arean, NHL team names and lat and long of
+#' arean location
+#'
+#' @format A data frame with 30 rows and 4 variables:
+#' \describe{
+#'   \item{Areana}{arena name}
+#'   \item{team}{team name and its city}
+#'   \item{lat}{latitude of the arean location}
+#'   \item{long}{longitude of the arean location}
+#'   ...
+#' }
+#' @source \url{http://stat545-ubc.github.io/r_package_data/arena_team.tsv}
+"arena.team"
+```
+
+			- load the dataset in the functions by `data(arena.team)`
