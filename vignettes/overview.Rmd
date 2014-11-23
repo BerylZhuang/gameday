@@ -69,3 +69,18 @@ Also a quote using `>`:
 ## funcitons included
 
 ## helper functions
+
+
+http://r-pkgs.had.co.nz/tests.html
+
+steps
+for test_me.R
+
+expect_false()
+expect_true()
+expect_equal()
+expect_error()
+
+
+if(TRUE)
+stop("show error message here")

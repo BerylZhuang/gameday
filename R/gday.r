@@ -22,17 +22,20 @@
 #' gday("Blues", "2014-11-22")
 #'
 
-# gday <- function(team){
-#   url  <- paste0('http://live.nhle.com/GameData/GCScoreboard/',
-#                  Sys.Date(), '.jsonp')
-#   grepl(team, RCurl::getURL(url), ignore.case = TRUE)
-# }
 
 gday <- function(team = "canucks", date = Sys.Date()){
+	# test if with internet connection
+	if(internet_connection() == FALSE)
+		stop("Error: No internect connection")
+	# test if the input of team name is correct
+	if(check_team_name(team) == FALSE)
+		stop("Error: Input of the team name is not found.
+				 please provide a valid team name. e.g. blues, case ignored.")
 	# test if the input of date is yyy-mm-dd format
 	if(check_date(date) == FALSE)
 		 stop("Error: Input of date format should be YYYY-MM-DD
 		 		 e.g. 2014-11-22")
+
 	#
 	#main function
 	url  <- paste0('http://live.nhle.com/GameData/GCScoreboard/',
