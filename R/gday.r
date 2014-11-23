@@ -28,9 +28,13 @@
 #   grepl(team, RCurl::getURL(url), ignore.case = TRUE)
 # }
 
-# add date argument
 gday <- function(team = "canucks", date = Sys.Date()){
-#	assert_that()
+	# test if the input of date is yyy-mm-dd format
+	if(check_date(date) == FALSE)
+		 stop("Error: Input of date format should be YYYY-MM-DD
+		 		 e.g. 2014-11-22")
+	#
+	#main function
 	url  <- paste0('http://live.nhle.com/GameData/GCScoreboard/',
 								 date, '.jsonp')
 	grepl(team, RCurl::getURL(url), ignore.case = TRUE)
