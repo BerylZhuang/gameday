@@ -3,30 +3,23 @@
 \alias{scores}
 \title{What is the score?}
 \usage{
-scores(date)
+scores(date = Sys.Date())
 }
 \arguments{
-\item{date}{The date you want to check (in YYYY-MM-DD format),
+\item{date}{The date you want to check the scores (in YYYY-MM-DD format),
 default vaule is system date}
 }
 \value{
-Logical \code{TRUE} if \code{team} has a NHL game today,
-\code{FALSE} otherwise
+A data.frame of listing home and away teams and their scores
 }
 \description{
-that takes date and returns a data.frame with
-information about the games on date.
+Takes date and returns a data.frame with
+information about the games on the given date.
 }
 \details{
-You know then problem: You're in your office writing R code and
-suddenly have the urge to check whether your NHL team has a game today.
-Before you know it you just wasted 15 minutes browsing the lastest
-news on your favorite hockey webpage.
-Suffer no more! You can now ask R directly, without tempting yourself
-by firing up your web browser.
-}
-\note{
-case in \code{team} is ignored
+Now you can check the scores of the NHL teams played/playing
+on a given date, without the temptation to browse the web or
+to watch the live stream...
 }
 \examples{
 scores()

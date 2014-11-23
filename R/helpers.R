@@ -21,10 +21,6 @@ check_date <- function(date){
 #--------------
 # check if the team name input is valid
 
-
-
-
-
 check_team_name <- function(team){
 	# returns TRUE is a exact match of team is found(case ignored)
 	# otherwise reture false

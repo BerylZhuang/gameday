@@ -1,4 +1,4 @@
-# tests for gday()
+#### tests for gday()
 
 #test for ignored case for team names
 test_that("case is ignored", {
@@ -28,7 +28,15 @@ test_that("expect error message if date format is not correct", {
 	expect_error(gday(team = "blues",   date = "Nov 22 2014"))
 })
 
-#-------
+
+#### tests for scores()
+test_that("Nov 23, 2014 is not the correct date format", {
+	expect_error(scores("Nov 23, 2014"))
+})
+
+
+
+#----------
 # tests for helper function check_date
 
 test_that("2014-11-19 is a date format", {

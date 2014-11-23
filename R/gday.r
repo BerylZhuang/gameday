@@ -31,7 +31,7 @@ gday <- function(team = "canucks", date = Sys.Date()){
 	if(check_team_name(team) == FALSE)
 		stop("Error: Input of the team name is not found.
 				 please provide a valid team name. e.g. blues, case ignored.")
-	# test if the input of date is yyy-mm-dd format
+	# test if the input of date is yyyy-mm-dd format
 	if(check_date(date) == FALSE)
 		 stop("Error: Input of date format should be YYYY-MM-DD
 		 		 e.g. 2014-11-22")
