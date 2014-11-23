@@ -20,21 +20,25 @@ check_date <- function(date){
 
 #--------------
 # check if the team name input is valid
-# list of team names(last update nov 2014)
 
-teams <- c('Ducks', 'Blackhawks', 'Wild', 'Senators',
-					 'Coyotes', 'Avalanche', 'Canadiens', 'Sharks',
-					 'Bruins', 'Blue Jackets', 'Predators', 'Blues',
-					 'Sabres', 'Stars', 'Devils', 'Lightning',
-					 'Flames', 'Red Wings', 'Islanders', 'Maple Leafs',
-					 'Hurricanes', 'Oilers', 'Rangers', 'Canucks',
-					 'Kings', 'Panthers', 'Flyers', 'Capitals',
-					 'Penguins', 'Jets')
+
+
 
 
 check_team_name <- function(team){
 	# returns TRUE is a exact match of team is found(case ignored)
 	# otherwise reture false
+
+	# list of team names(last update nov 2014)
+	teams <- c('Ducks', 'Blackhawks', 'Wild', 'Senators',
+						 'Coyotes', 'Avalanche', 'Canadiens', 'Sharks',
+						 'Bruins', 'Blue Jackets', 'Predators', 'Blues',
+						 'Sabres', 'Stars', 'Devils', 'Lightning',
+						 'Flames', 'Red Wings', 'Islanders', 'Maple Leafs',
+						 'Hurricanes', 'Oilers', 'Rangers', 'Canucks',
+						 'Kings', 'Panthers', 'Flyers', 'Capitals',
+						 'Penguins', 'Jets')
+
 	TRUE %in%
 		grepl(pattern = paste0("^", team, "$"),
 					teams, ignore.case = TRUE)

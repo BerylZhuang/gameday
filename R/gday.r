@@ -1,4 +1,4 @@
-#' Is it Gameday?
+#' Is it Gameday? new2
 #'
 #' This function returns TRUE if your NHL team plays today
 #' and FALSE otherwise
