@@ -20,6 +20,10 @@ The package can be installed directly from github
 
 `devtools::install_github("berylzhuang/gameday")`
 
+or add `build_vignettes = TRUE` if you have problems (suggested by Dustin, thank you!)
+
+`devtools::install_github("BerylZhuang/gameday", build_vignettes = TRUE)`
+
 
 ## Functions included
 
