@@ -3,7 +3,7 @@
 #'
 #' @format A data frame with 30 rows and 4 variables:
 #' \describe{
-#'   \item{Areana}{arena name}
+#'   \item{areana}{arena name}
 #'   \item{team}{team name and its city}
 #'   \item{lat}{latitude of the arean location}
 #'   \item{long}{longitude of the arean location}
